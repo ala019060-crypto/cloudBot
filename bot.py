@@ -12,8 +12,13 @@ target_url = "https://example.com"
 PRIVATE_KEY = os.environ.get("PRIVATE_KEY_1")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
 
+# গিটহাব সিক্রেট থেকে এপিআই কি সঠিকভাবে লোড করার কনফিগারেশন
+if not GEMINI_KEY:
+    raise ValueError("System Error: GEMINI_API_KEY environment variable is missing!")
+
 genai.configure(api_key=GEMINI_KEY)
 
+# সঠিক মডেল ডিক্লেয়ারেশন
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 def clean_json_response(text):

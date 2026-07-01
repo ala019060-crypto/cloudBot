@@ -12,7 +12,7 @@ target_url = "https://example.com"
 PRIVATE_KEY = os.environ.get("PRIVATE_KEY_1")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
 
-genai.configure(api_key=GEMINI_KEY)
+model = genai.GenerativeModel('models/gemini-1.5-flash')
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 def clean_json_response(text):
